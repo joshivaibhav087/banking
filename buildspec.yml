@@ -1,18 +1,13 @@
-# This file controls the AWS CodeBuild
-
 version: 0.2
 phases:
-pre_build:
-commands:
-- echo "Entered the pre-build phase"
-build:
-commands:
-- echo "Entered build phase"
-- mvn clean prepare-package war:exploded
-post_build:
-commands:
-- echo "Entered the post-build phase"
-- mv target/deploy ./
+  build:
+    commands:
+      - echo Entered the build phase...
+      - mvn package
+  post_build:
+    commands:
+      - echo Build completed successfully
 artifacts:
-files:
-- deploy/**/*
+  files:
+    - target/cicdconn-security.jar
+  discard-paths: yes
