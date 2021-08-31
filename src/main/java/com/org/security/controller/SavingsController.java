@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.org.security.model.SavingsAccount;
 import com.org.security.model.SavingsRequest;
 import com.org.security.service.SavingsService;
-
+//@CrossOrigin(origins = {"http://onlinebanking.s3-website.us-east-2.amazonaws.com"})
 @RestController
+
 @RequestMapping("/api/savings")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class SavingsController {
-	
+	String server = "http://onlinebanking.s3-website.us-east-2.amazonaws.com";
 	@Autowired
 	SavingsService savingsService;
 	

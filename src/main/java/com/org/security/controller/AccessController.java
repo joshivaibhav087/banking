@@ -23,14 +23,14 @@ import com.org.security.model.RolePermission;
 import com.org.security.model.User;
 import com.org.security.model.User_Role;
 import com.org.security.service.AccessService;
-
+//@CrossOrigin(origins = {"http://onlinebanking.s3-website.us-east-2.amazonaws.com"})
 @RestController
 @RequestMapping("/api/access")
 @CrossOrigin(origins = "*", maxAge = 3600)
 
 public class AccessController {
 	
-
+	String server = "http://onlinebanking.s3-website.us-east-2.amazonaws.com";
 
 	@Autowired
 	private AccessService accessService;

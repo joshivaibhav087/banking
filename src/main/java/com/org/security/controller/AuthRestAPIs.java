@@ -39,13 +39,14 @@ import com.org.security.request.SignUpForm;
 import com.org.security.response.JwtResponse;
 import com.org.security.response.ResponseMessage;
 import com.org.security.service.AccessServiceImpl;
-
+//@CrossOrigin(origins = {"http://onlinebanking.s3-website.us-east-2.amazonaws.com"})
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 
 
 public class AuthRestAPIs {
+	String server = "http://onlinebanking.s3-website.us-east-2.amazonaws.com";
 
 	@Autowired
 	AuthenticationManager authenticationManager;
@@ -78,7 +79,7 @@ public class AuthRestAPIs {
 	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
-
+		System.out.println(encoder.matches(loginRequest.getPassword(), "$2a$10$AtqN2OZV/XV80FGONp/9sOlamjgrZs9/svRZR76mLTIVUsWZ7xY7a"));
 		System.out.println(loginRequest.getUsername());
 		System.out.println(loginRequest.getPassword());
 		Authentication authentication = authenticationManager.authenticate(
