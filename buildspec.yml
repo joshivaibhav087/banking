@@ -9,5 +9,5 @@ phases:
       - echo Build completed successfully
 artifacts:
   files:
-    - target/cicdconn-security.jar
+    - target/cicdconn.jar
   discard-paths: yes
