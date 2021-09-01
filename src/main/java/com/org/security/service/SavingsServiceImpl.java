@@ -44,8 +44,8 @@ public class SavingsServiceImpl implements SavingsService {
 	public TransferRequest newFundsTransfer(TransferRequest transferRequest) {
 		
 		
-		SavingsAccount recipient = savingsRepository.findByAccountNumber(transferRequest.getRecipientId());
-		SavingsAccount origin = savingsRepository.findByAccountNumber(transferRequest.getOriginId());
+		SavingsAccount recipient = savingsRepository.findByAccountNumber(transferRequest.getRecepientAccNo());
+		SavingsAccount origin = savingsRepository.findByAccountNumber(transferRequest.getOriginAccNo());
 		
 	
 		
@@ -53,11 +53,13 @@ public class SavingsServiceImpl implements SavingsService {
 		BigDecimal originBalance = origin.getAccountBalance().subtract(transferRequest.getAmount());
 
 		recipient.setAccountBalance(recipientBalance);
-		origin.setAccountBalance(recipientBalance);
+		origin.setAccountBalance(originBalance);
 		
 		savingsRepository.save(recipient);
 		savingsRepository.save(origin);
 		
+//		transferRequest.setRecepientBal(recipientBalance);
+//		transferRequest.setOriginBal(originBalance);
 		
 		return transferRequest;
 	}
