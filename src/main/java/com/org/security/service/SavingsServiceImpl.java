@@ -22,7 +22,11 @@ public class SavingsServiceImpl implements SavingsService {
 	public SavingsAccount viewSavingsById(int id) {
 		return savingsRepository.findById(id).get();
 	}
-
+	@Override
+	public SavingsAccount getSavingsByAccountNumber(int accountNumber) {
+		System.out.println(savingsRepository.findByAccountNumber(accountNumber));
+		return savingsRepository.findByAccountNumber(accountNumber);
+	}
 
 	@Override
 	public SavingsAccount depositSavings(SavingsRequest depositRequest) {
@@ -77,6 +81,9 @@ public class SavingsServiceImpl implements SavingsService {
 		// TODO Auto-generated method stub
 		return savingsRepository.save(savings);
 	}
+
+
+	
 
 
 

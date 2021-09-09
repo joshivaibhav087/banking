@@ -25,6 +25,9 @@ public interface SavingsService {
 
 	SavingsAccount depositSavings(SavingsRequest depositRequest);
 
+
+	SavingsAccount getSavingsByAccountNumber(int accountNumber);
+
 //	SavingsAccount deleteSavingsAccount(SavingsAccount savings);
 	
 

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,8 +20,12 @@ public class SavingsAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="account_number")
 	private int accountNumber;
+	@Column(name="account_balance")
 	private BigDecimal accountBalance;
 
 	@OneToMany(mappedBy = "savingsAccount", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -57,6 +62,20 @@ public class SavingsAccount {
 
 	public void setSavingsTransactionList(List<SavingsTransaction> savingsTransactionList) {
 		this.savingsTransactionList = savingsTransactionList;
+	}
+
+	public SavingsAccount(int id, int accountNumber, BigDecimal accountBalance,
+			List<SavingsTransaction> savingsTransactionList) {
+		super();
+		this.id = id;
+		this.accountNumber = accountNumber;
+		this.accountBalance = accountBalance;
+		this.savingsTransactionList = savingsTransactionList;
+	}
+
+	public SavingsAccount() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 

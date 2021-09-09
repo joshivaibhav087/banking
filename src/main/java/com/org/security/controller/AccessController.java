@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.org.security.model.Resource;
 import com.org.security.model.ResourcePerm;
-import com.org.security.model.ResourcePermission;
+
 import com.org.security.model.Role;
 import com.org.security.model.RolePermission;
 import com.org.security.model.User;
@@ -77,7 +77,7 @@ public class AccessController {
 		
 
 		
-		System.out.println(userRole);
+
 		return accessService.setRole(userRole);
 
 	}
@@ -108,22 +108,21 @@ public class AccessController {
 	@PostMapping("/createRolewithPerm")
 	public String createRoleWithPermissions(@RequestBody ResourcePerm resourcePerm) {
 
-		System.out.println("inside ");
+		
 		Role role = new Role();
 
 		role.setRoleName(resourcePerm.getRoleName());
 
 		Role roledata = accessService.addRole(role);
 
-		System.out.println(roledata.getRoleID());
-		System.out.print(resourcePerm.getPermissionList());
+		
 
 		for (RolePermission p : resourcePerm.getPermissionList()) {
 
 			p.setRoleId(roledata.getRoleID());
 		}
 
-		System.out.println(resourcePerm.getPermissionList());
+		
 		for (RolePermission p : resourcePerm.getPermissionList()) {
 			accessService.grantPermissions(p);
 		}
@@ -134,7 +133,7 @@ public class AccessController {
 	@PutMapping("/updatepermissionsByRoleID")
 	public String updatepermissionsByRoleIDAndResourceId(@RequestBody ResourcePerm resourcePerm) {
 
-		System.out.println("inside update ");
+		
 
 		return accessService.updatepermissionsByRoleIDAndResourceId(resourcePerm);
 

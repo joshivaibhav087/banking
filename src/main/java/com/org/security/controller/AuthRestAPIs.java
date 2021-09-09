@@ -79,9 +79,7 @@ public class AuthRestAPIs {
 	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
-		System.out.println(encoder.matches(loginRequest.getPassword(), "$2a$10$AtqN2OZV/XV80FGONp/9sOlamjgrZs9/svRZR76mLTIVUsWZ7xY7a"));
-		System.out.println(loginRequest.getUsername());
-		System.out.println(loginRequest.getPassword());
+		
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
@@ -92,7 +90,7 @@ public class AuthRestAPIs {
 		User data=accessAervice.getByEmailId(loginRequest.getUsername());
 		
 
-		return ResponseEntity.ok(new JwtResponse(data.getId(),data.getName(),jwt, userDetails.getUsername(),data.getMobile(),data.getGender(), userDetails.getAuthorities()));
+		return ResponseEntity.ok(new JwtResponse(data.getId(),data.getName(),jwt, userDetails.getUsername(),data.getGender(),jwt, data.getSavings_account_number(),data.getPan(),data.getAdhar_number(),data.getMobile(),userDetails.getAuthorities()));
 	}
 	
 
@@ -125,7 +123,7 @@ public class AuthRestAPIs {
 	//NEW USER REGISTRATION 
 		@PostMapping("/signup")
 		public ResponseEntity<?> registerUser(@RequestBody SignUpForm signUpRequest) {
-			System.out.println(signUpRequest);
+		
 //			if (userRepository.existsByUsername(signUpRequest.getName())) {
 //				return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
 //						HttpStatus.BAD_REQUEST);

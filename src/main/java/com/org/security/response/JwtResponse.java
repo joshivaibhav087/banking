@@ -12,149 +12,95 @@ public class JwtResponse {
 	private String type = "Bearer";
 	private String username;
 	private String gender;
-//	private String adhar_number;
-//	private String pan;
-//	private String city;
+	private int savings_account_number;
+	private String pan;
+	private String adhar_number;
 	private String mobile;
 	private Collection<? extends GrantedAuthority> authorities;
-
-	public JwtResponse(String id,String name,String accessToken, String username, Collection<? extends GrantedAuthority> authorities) {
-		this.id=id;
-		this.name=name;
-		this.token = accessToken;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getSavings_account_number() {
+		return savings_account_number;
+	}
+	public void setSavings_account_number(int savings_account_number) {
+		this.savings_account_number = savings_account_number;
+	}
+	public String getPan() {
+		return pan;
+	}
+	public void setPan(String pan) {
+		this.pan = pan;
+	}
+	public String getAdhar_number() {
+		return adhar_number;
+	}
+	public void setAdhar_number(String adhar_number) {
+		this.adhar_number = adhar_number;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
-	
-
-	public JwtResponse(String id, String name, String token, String username,String mobile, String gender,
-			 Collection<? extends GrantedAuthority> authorities) {
+	public JwtResponse(String id, String name, String token, String type, String username, String gender,
+			int savings_account_number, String pan, String adhar_number, String mobile,
+			Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.token = token;
+		this.type = type;
 		this.username = username;
-		this.mobile=mobile;
 		this.gender = gender;
-//		this.adhar_number = adhar_number;
-//		this.pan=pan;
-//		this.hiredDate = hiredDate;
+		this.savings_account_number = savings_account_number;
+		this.pan = pan;
+		this.adhar_number = adhar_number;
+		this.mobile = mobile;
 		this.authorities = authorities;
 	}
-
-
-	public JwtResponse() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public String getAccessToken() {
-		return token;
-	}
-
-	public void setAccessToken(String accessToken) {
-		this.token = accessToken;
-	}
-
-	public String getTokenType() {
-		return type;
-	}
-
-	public void setTokenType(String tokenType) {
-		this.type = tokenType;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-//	public String getDepartment() {
-//		return department;
-//	}
-//
-//	public void setDepartment(String department) {
-//		this.department = department;
-//	}
-//
-//	public Date getHiredDate() {
-//		return hiredDate;
-//	}
-//
-//	public void setHiredDate(Date hiredDate) {
-//		this.hiredDate = hiredDate;
-//	}
-//
-//
-//	public String getCity() {
-//		return city;
-//	}
-//
-//
-//	public void setCity(String city) {
-//		this.city = city;
-//	}
-
-
-	public String getMobile() {
-		return mobile;
-	}
-
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-
-//	public String getAdhar_number() {
-//		return adhar_number;
-//	}
-//
-//
-//	public void setAdhar_number(String adhar_number) {
-//		this.adhar_number = adhar_number;
-//	}
-//
-//
-//	public String getPan() {
-//		return pan;
-//	}
-//
-//
-//	public void setPan(String pan) {
-//		this.pan = pan;
-//	}
-	
+//	
 	
 	
     

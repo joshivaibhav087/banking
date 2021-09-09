@@ -89,14 +89,14 @@ public class AccessServiceImpl implements AccessService {
 
 		Role role=getByRoleName(resourcePerm.getRoleName());
 
-		System.out.println(resourcePerm.getPermissionList());
+		
 
 		for(RolePermission p:resourcePerm.getPermissionList()) {
 
 			p.setRoleId(role.getRoleID());
 		}
 
-		System.out.println(resourcePerm);
+		
 
 		for(RolePermission p:resourcePerm.getPermissionList()) {
 
@@ -106,7 +106,7 @@ public class AccessServiceImpl implements AccessService {
 			rp.setCanEdit(p.isCanEdit());
 			rp.setCanAdd(p.isCanAdd());
 			rp.setCanDelete(p.isCanDelete());
-			System.out.println(rp);
+			
 			permissionRepository.save(rp);
 
 		}

@@ -30,6 +30,11 @@ public class SavingsController {
 		return savingsService.viewSavingsById(id);
 	}
 	
+	@GetMapping("/{accountNumber}")
+	public SavingsAccount getamountByAccountNumber(@PathVariable("accountNumber") int accountNumber) {
+		return savingsService.getSavingsByAccountNumber(accountNumber);
+	}
+	
 	@PostMapping("/new")
 	public SavingsAccount createSavingsAccount(@RequestBody SavingsAccount savings) {
 		return savingsService.createSavingsAccount(savings);
